@@ -3,40 +3,41 @@ package com.mengqi.transfer.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * A simple object model to represent an account.
+ *
+ * @author Mengqi Yang
+ */
 @Entity
 public class Account {
 
     @Id
-    @GeneratedValue
     @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long name;
 
     @Column
-    private double balance;
+    private long balance;
 
     public Account() {
-        balance = 0.0;
+        this.balance = 0;
+    }
+    public Account(long balance) {
+        this.balance = balance;
     }
 
-    public Account(double initBalance) {
-        balance = initBalance;
-    }
-
-    public double getBalance() {
+    public long getBalance() {
         return balance;
     }
 
-    public void incBalance(double added) {
-        balance += added;
+    public void setBalance(long balance) {
+        this.balance = balance;
     }
 
-    public boolean decBalance(double transferred) {
-        if (balance - transferred < 0) {
-            return false;
-        }
-        balance -= transferred;
-        return true;
+    public long getName() {
+        return name;
     }
 }
