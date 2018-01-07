@@ -3,11 +3,11 @@ This is a simplified transfer web service implemented in Java. To run this servi
 ```Bash
 git clone https://github.com/jiujieti/TransferService.git 
 ```
-Then run the following Maven command:
+Then run the following Maven command to build the project in the local cloned repo:
 ```Bash
 mvn clean install
 ```
-Then run the application:
+Finally run the application:
 ```Bash
 mvn spring-boot:run
 ```
